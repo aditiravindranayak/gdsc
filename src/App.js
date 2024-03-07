@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar.js";
+import Core from "./Components/Core/Core.js";
+import Events from "./Components/Events/Events.js";
+import Footer from "./Components/Footer/Footer.js";
+import Challenges from "./Components/Challenges/Challenges.js";
+import ContactUs from "./Components/ContactUs/ContactUs.js";
+import About from "./Components/About/About.js";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/core" element={<Core />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/challenges" element={<Challenges />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
+
+
